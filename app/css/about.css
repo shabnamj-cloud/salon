@@ -1,0 +1,111 @@
+/* صفحه اصلی */
+.aboutPage {
+  font-family: 'Vazir', sans-serif;
+  background-color: #fff0f5;
+  color: #333;
+}
+
+/* Hero Section */
+.heroSection {
+  position: relative;
+  height: 700px;
+  width: 100%;
+  background-image: linear-gradient(to bottom, rgba(255, 182, 193, 0.5), rgba(255, 192, 203, 0.5)), url('/images/8.jpg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.heroTitle {
+  color: #fff;
+  font-size: 36px;
+  font-weight: bold;
+  text-align: center;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
+}
+
+/* About Section */
+.aboutSection {
+  padding: 60px 20px;
+  background-color: #fff5f0;
+}
+
+.aboutContent {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.textBlock {
+  flex: 1 1 400px;
+  font-size: 18px;
+  line-height: 1.6;
+  color: #333;
+}
+
+.textBlock h2 {
+  color: #ff69b4;
+  margin-bottom: 15px;
+}
+
+.imageBlock {
+  flex: 1 1 400px;
+}
+
+.aboutImage {
+  border-radius: 10px;
+  object-fit: cover;
+  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.aboutImage:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+/* Gallery Section */
+.gallerySection {
+  padding: 60px 20px;
+  background-color: #ffe4e1;
+}
+
+.galleryTitle {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 28px;
+  font-weight: bold;
+  color: #ff1493;
+}
+
+.galleryGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.galleryImage {
+  border-radius: 10px;
+  object-fit: cover;
+  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.galleryImage:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .aboutContent {
+    flex-direction: column;
+  }
+}

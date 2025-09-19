@@ -1,95 +1,70 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import Head from 'next/head';
+
 
 export default function Home() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>app/page.js</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <>
+      <Head>
+        <title>صفحه اصلی</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <style>{`
+          html, body, #__next {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+          }
+        `}</style>
+      </Head>
 
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
-        </div>
+      {/* کانتینر اصلی */}
+      <div style={{ position: 'fixed', inset: 0, zIndex: 0, overflow: 'hidden' }}>
+        
+        {/* لایه‌ی بلور برای پر کردن صفحه */}
+        <div
+          style={{
+            position: 'absolute',
+            inset: 0,
+            backgroundImage: "url('/images/3.jpg')",
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            filter: 'blur(20px)',     // محو کردن
+            transform: 'scale(1.1)',  // کمی بزرگتر تا لبه‌ها خالی نشه
+          }}
+        ></div>
+
+        {/* عکس اصلی، کامل و بدون برش */}
+        <img
+          src="/images/3.jpg"
+          alt="Background"
+          style={{
+            position: 'absolute',
+            top: '50%',
+            left: '50%',
+            maxWidth: '100%',
+            maxHeight: '100%',
+            transform: 'translate(-50%, -50%)',
+            objectFit: 'contain',
+            zIndex: 1,
+          }}
+        />
+      </div>
+
+      {/* محتوای صفحه */}
+      <main
+        style={{
+          position: 'relative',
+          zIndex: 2,
+          minHeight: '100vh',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          color: '#fff',
+        }}
+      >
+        
       </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+    </>
   );
 }
