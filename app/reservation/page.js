@@ -47,122 +47,271 @@ function ReservationContent() {
   };
 
   return (
-    <div style={containerStyle}>
-      {/* عکس سمت چپ - فقط در دسکتاپ نمایش داده می‌شود */}
-      <div style={imageSectionStyle}>
-        <img src="/images/2.jpg" alt="سالن زیبایی" style={imageStyle} />
-      </div>
+    <div className="reservation-container">
+      {/* فرم */}
+      <div className="reservation-form">
+        <div className="reservation-form-container">
+          <h1 className="reservation-form-title">رزرو وقت آنلاین</h1>
 
-      {/* فرم سمت راست */}
-      <div style={formSectionStyle}>
-        <div style={formContainerStyle}>
-          <h1 style={formTitleStyle}>رزرو وقت آنلاین</h1>
-
-          <form onSubmit={handleSubmit} style={formStyle}>
-            <label style={labelStyle}>نام و نام خانوادگی:</label>
+          <form onSubmit={handleSubmit} className="reservation-form-inner">
+            <label className="form-label">نام و نام خانوادگی:</label>
             <input
               type="text"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              style={inputStyle}
+              className="form-input"
               placeholder="مثلا: سارا احمدی"
             />
 
-            <label style={labelStyle}>شماره تماس:</label>
+            <label className="form-label">شماره تماس:</label>
             <input
               type="tel"
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
-              style={inputStyle}
+              className="form-input"
               placeholder="مثلا: 09121234567"
             />
 
-            <h3 style={sectionTitleStyle}>انتخاب خدمات:</h3>
-            <div style={checkboxContainerStyle}>
+            <h3 className="form-section-title">انتخاب خدمات:</h3>
+            <div className="checkbox-container">
               {services.map((service) => (
-                <label key={service} style={checkboxLabelStyle}>
+                <label key={service} className="checkbox-label">
                   <input
                     type="checkbox"
                     value={service}
                     checked={selected.includes(service)}
                     onChange={() => handleCheckboxChange(service)}
-                    style={checkboxStyle}
+                    className="checkbox-input"
                   />
-                  <span style={checkboxTextStyle}>{service}</span>
+                  <span className="checkbox-text">{service}</span>
                 </label>
               ))}
             </div>
 
-            <h3 style={sectionTitleStyle}>انتخاب روز:</h3>
+            <h3 className="form-section-title">انتخاب روز:</h3>
             <input 
               type="date" 
               value={date} 
               onChange={(e) => setDate(e.target.value)} 
-              style={inputStyle} 
+              className="form-input" 
             />
 
-            <h3 style={sectionTitleStyle}>انتخاب ساعت:</h3>
+            <h3 className="form-section-title">انتخاب ساعت:</h3>
             <input 
               type="time" 
               value={time} 
               onChange={(e) => setTime(e.target.value)} 
-              style={inputStyle} 
+              className="form-input" 
             />
 
-            <button type="submit" style={submitButtonStyle}>ثبت رزرو</button>
+            <button type="submit" className="submit-button">ثبت رزرو</button>
           </form>
         </div>
       </div>
 
-      <style jsx global>{`
+      {/* عکس */}
+      <div className="reservation-image">
+        <img src="/images/2.jpg" alt="سالن زیبایی" className="image" />
+      </div>
+
+      <style jsx>{`
+        .reservation-container {
+          display: flex;
+          flex-direction: row;
+          min-height: 100vh;
+          width: 100%;
+          font-family: 'Vazir', sans-serif;
+          direction: ltr;
+        }
+
+        .reservation-form {
+          flex: 1.2;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 40px 20px;
+          background: rgba(255, 245, 250, 0.9);
+          background-image: linear-gradient(135deg, #fff5fa 0%, #fceef7 100%);
+          order: 2;
+        }
+
+        .reservation-form-container {
+          width: 100%;
+          max-width: 500px;
+          padding: 40px;
+          background: white;
+          border-radius: 16px;
+          box-shadow: 0 10px 30px rgba(126, 63, 118, 0.15);
+          direction: rtl;
+        }
+
+        .reservation-form-title {
+          text-align: center;
+          margin-bottom: 25px;
+          color: #7e3f76;
+          font-size: 1.8rem;
+        }
+
+        .form-section-title {
+          margin-top: 20px;
+          margin-bottom: 10px;
+          color: #7e3f76;
+          font-size: 1.2rem;
+        }
+
+        .form-label {
+          display: block;
+          margin-bottom: 6px;
+          font-weight: 600;
+          color: #7e3f76;
+        }
+
+        .form-input {
+          width: 100%;
+          padding: 12px;
+          font-size: 16px;
+          border-radius: 8px;
+          border: 2px solid #e8cfe0;
+          margin-bottom: 20px;
+          cursor: pointer;
+          transition: border-color 0.3s ease;
+          box-sizing: border-box;
+          text-align: right;
+          font-family: 'Vazir', sans-serif;
+        }
+
+        .form-input:focus {
+          border-color: #d291bc;
+          outline: none;
+        }
+
+        .submit-button {
+          margin-top: 25px;
+          width: 100%;
+          padding: 15px;
+          border: none;
+          border-radius: 30px;
+          font-size: 18px;
+          font-weight: bold;
+          background: linear-gradient(135deg, #d291bc, #c47ba5);
+          color: white;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          font-family: 'Vazir', sans-serif;
+        }
+
+        .submit-button:hover {
+          background: linear-gradient(135deg, #c47ba5, #d291bc);
+        }
+
+        .checkbox-container {
+          display: flex;
+          flex-direction: column;
+          gap: 12px;
+          margin-bottom: 20px;
+        }
+
+        .checkbox-label {
+          display: flex;
+          justify-content: flex-start;
+          gap: 10px;
+          cursor: pointer;
+          align-items: center;
+          direction: rtl;
+        }
+
+        .checkbox-input {
+          cursor: pointer;
+          width: 18px;
+          height: 18px;
+          order: 2;
+          flex-shrink: 0;
+        }
+
+        .checkbox-text {
+          order: 1;
+          text-align: right;
+        }
+
+        .reservation-image {
+          flex: 1;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          overflow: hidden;
+          background-color: #f9f3f8;
+          order: 1;
+        }
+
+        .image {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+
+        /* استایل‌های موبایل */
         @media (max-width: 768px) {
           .reservation-container {
-            flex-direction: column !important;
-            padding-top: 70px !important;
+            flex-direction: column;
+            padding-top: 70px;
           }
-          .reservation-image {
-            display: none !important; /* مخفی کردن عکس در موبایل */
-          }
+
           .reservation-form {
-            width: 100% !important;
-            padding: 20px 15px !important;
-            order: 2 !important;
+            order: 1;
+            width: 100%;
+            padding: 20px 15px;
+            min-height: auto;
           }
+
           .reservation-form-container {
-            padding: 20px !important;
-            max-width: 100% !important;
-            margin-top: 0 !important;
+            padding: 20px;
+            max-width: 100%;
+            margin: 0;
+            width: 100%;
+            box-sizing: border-box;
           }
+
+          .reservation-image {
+            order: 2;
+            width: 100%;
+            height: 40vh;
+            min-height: 300px;
+            display: flex;
+          }
+
           .reservation-form-title {
-            font-size: 1.5rem !important;
+            font-size: 1.6rem;
           }
-          .reservation-section-title {
-            font-size: 1.1rem !important;
-          }
-          .reservation-checkbox-label {
-            gap: 8px !important;
-            margin-bottom: 10px !important;
-          }
-          .reservation-checkbox-text {
-            font-size: 14px !important;
+
+          .form-section-title {
+            font-size: 1.1rem;
           }
         }
 
         @media (max-width: 480px) {
           .reservation-container {
-            padding-top: 60px !important;
+            padding-top: 60px;
           }
+
           .reservation-form {
-            padding: 15px 10px !important;
+            padding: 15px 10px;
           }
+
           .reservation-form-container {
-            padding: 15px !important;
+            padding: 15px;
           }
-          .reservation-checkbox-label {
-            gap: 6px !important;
+
+          .reservation-image {
+            height: 35vh;
+            min-height: 250px;
           }
-          .reservation-checkbox-text {
-            font-size: 13px !important;
+
+          .reservation-form-title {
+            font-size: 1.5rem;
+          }
+
+          .form-section-title {
+            font-size: 1rem;
           }
         }
       `}</style>
@@ -173,152 +322,8 @@ function ReservationContent() {
 // کامپوننت اصلی صفحه با Suspense
 export default function ReservationPage() {
   return (
-    <Suspense fallback={<div style={loadingStyle}>در حال بارگذاری...</div>}>
+    <Suspense fallback={<div className="loading">در حال بارگذاری...</div>}>
       <ReservationContent />
     </Suspense>
   );
 }
-
-// استایل‌ها
-const containerStyle = {
-  display: "flex",
-  minHeight: "100vh",
-  width: "100%",
-  fontFamily: "'Vazir', sans-serif",
-  direction: "ltr",
-  className: "reservation-container"
-};
-
-const imageSectionStyle = {
-  flex: 1,
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-  overflow: "hidden",
-  backgroundColor: "#f9f3f8",
-  order: 1,
-  className: "reservation-image"
-};
-
-const imageStyle = { 
-  width: "100%", 
-  height: "100%", 
-  objectFit: "cover" 
-};
-
-const formSectionStyle = {
-  flex: 1.2,
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-  padding: "40px 20px",
-  backgroundColor: "rgba(255, 245, 250, 0.9)",
-  backgroundImage: "linear-gradient(135deg, #fff5fa 0%, #fceef7 100%)",
-  order: 2,
-  className: "reservation-form"
-};
-
-const formContainerStyle = {
-  width: "100%",
-  maxWidth: "500px",
-  padding: "40px",
-  background: "white",
-  borderRadius: "16px",
-  boxShadow: "0 10px 30px rgba(126, 63, 118, 0.15)",
-  direction: "rtl",
-  className: "reservation-form-container"
-};
-
-const formStyle = {
-  width: "100%"
-};
-
-const formTitleStyle = { 
-  textAlign: "center", 
-  marginBottom: "25px", 
-  color: "#7e3f76",
-  fontSize: "1.8rem",
-  className: "reservation-form-title"
-};
-
-const sectionTitleStyle = { 
-  marginTop: "20px", 
-  marginBottom: "10px", 
-  color: "##7e3f76",
-  fontSize: "1.2rem",
-  className: "reservation-section-title"
-};
-
-const labelStyle = { 
-  display: "block", 
-  marginBottom: "6px", 
-  fontWeight: "600", 
-  color: "#7e3f76" 
-};
-
-const inputStyle = { 
-  width: "100%", 
-  padding: "12px", 
-  fontSize: "16px", 
-  borderRadius: "8px", 
-  border: "2px solid #e8cfe0", 
-  marginBottom: "20px", 
-  cursor: "pointer", 
-  transition: "border-color 0.3s ease",
-  boxSizing: "border-box",
-  textAlign: "right"
-};
-
-const submitButtonStyle = { 
-  marginTop: "25px", 
-  width: "100%", 
-  padding: "15px", 
-  border: "none", 
-  borderRadius: "30px", 
-  fontSize: "18px", 
-  fontWeight: "bold", 
-  background: "linear-gradient(135deg, #d291bc, #c47ba5)", 
-  color: "white", 
-  cursor: "pointer", 
-  transition: "all 0.3s ease" 
-};
-
-const checkboxContainerStyle = { 
-  display: "flex", 
-  flexDirection: "column", 
-  gap: "12px",
-  marginBottom: "20px"
-};
-
-const checkboxLabelStyle = { 
-  display: "flex", 
-  justifyContent: "flex-start",
-  gap: "10px", 
-  cursor: "pointer",
-  alignItems: "center",
-  direction: "rtl",
-  className: "reservation-checkbox-label"
-};
-
-const checkboxStyle = {
-  cursor: "pointer",
-  width: "18px",
-  height: "18px",
-  order: 2,
-  flexShrink: 0
-};
-
-const checkboxTextStyle = {
-  order: 1,
-  textAlign: "right",
-  className: "reservation-checkbox-text"
-};
-
-const loadingStyle = {
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
-  height: "100vh",
-  fontSize: "18px",
-  fontFamily: "'Vazir', sans-serif",
-};

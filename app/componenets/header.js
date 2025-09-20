@@ -107,7 +107,7 @@ export default function Header() {
 
           .nav {
             position: absolute;
-            top: 60px; /* زیر هدر */
+            top: 100%; /* زیر هدر */
             left: 0;
             width: 100%;
             flex-direction: column;
@@ -120,16 +120,17 @@ export default function Header() {
           }
 
           .nav.open {
-            max-height: 500px; /* ارتفاع منو باز */
+            max-height: 100vh; /* ارتفاع مناسب */
           }
 
           .link {
             width: 100%;
             text-align: center;
-            font-size: 16px;
+            font-size: 18px;
             padding: 15px 0;
             border-radius: 0;
             border-bottom: 1px solid rgba(255,255,255,0.1);
+            margin-bottom:5px
           }
 
           .link:last-child {
