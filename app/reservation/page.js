@@ -1,8 +1,9 @@
 "use client";
 import { useSearchParams } from "next/navigation";
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 
-export default function ReservationPage() {
+// کامپوننت اصلی فرم رزرو
+function ReservationContent() {
   const searchParams = useSearchParams();
   const preselectedService = searchParams.get("service");
 
@@ -169,6 +170,15 @@ export default function ReservationPage() {
   );
 }
 
+// کامپوننت اصلی صفحه با Suspense
+export default function ReservationPage() {
+  return (
+    <Suspense fallback={<div style={loadingStyle}>در حال بارگذاری...</div>}>
+      <ReservationContent />
+    </Suspense>
+  );
+}
+
 // استایل‌ها
 const containerStyle = {
   display: "flex",
@@ -234,7 +244,7 @@ const formTitleStyle = {
 const sectionTitleStyle = { 
   marginTop: "20px", 
   marginBottom: "10px", 
-  color: "#7e3f76",
+  color: "##7e3f76",
   fontSize: "1.2rem",
   className: "reservation-section-title"
 };
@@ -302,4 +312,13 @@ const checkboxTextStyle = {
   order: 1,
   textAlign: "right",
   className: "reservation-checkbox-text"
+};
+
+const loadingStyle = {
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  height: "100vh",
+  fontSize: "18px",
+  fontFamily: "'Vazir', sans-serif",
 };
