@@ -1,3 +1,4 @@
+"use client";
 import Link from "next/link";
 import { useState } from "react";
 import "../globals.css";
@@ -20,11 +21,11 @@ export default function Header() {
 
       {/* منو */}
       <nav className={`nav ${menuOpen ? "open" : ""}`}>
-        <Link href="/" legacyBehavior><a className="link">صفحه اصلی</a></Link>
-        <Link href="/services" legacyBehavior><a className="link">خدمات</a></Link>
-        <Link href="/reservation" legacyBehavior><a className="link">رزرو وقت</a></Link>
-        <Link href="/about" legacyBehavior><a className="link">درباره ما</a></Link>
-        <Link href="/contact" legacyBehavior><a className="link">تماس با ما</a></Link>
+        <Link href="/" className="link">صفحه اصلی</Link>
+        <Link href="/services" className="link">خدمات</Link>
+        <Link href="/reservation" className="link">رزرو وقت</Link>
+        <Link href="/about" className="link">درباره ما</Link>
+        <Link href="/contact" className="link">تماس با ما</Link>
       </nav>
 
       <style jsx>{`

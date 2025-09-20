@@ -28,3 +28,34 @@ a {
   border-radius: 5px;
   transition: all 0.3s;
 }
+/* تنظیم راست به چپ برای کل صفحات */
+html, body {
+  direction: rtl;
+  text-align: right;
+}
+
+/* فرم‌ها */
+form {
+  direction: rtl;
+}
+
+/* فیلدهای فرم */
+input, textarea, select, button {
+  direction: rtl;
+  text-align: right;
+  font-family: 'Vazir', sans-serif; /* اگر فونت فارسی داری */
+}
+
+/* label ها */
+label {
+  display: block;
+  text-align: right;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+.header {
+  direction: ltr; /* مهم: برای Flex هدر */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

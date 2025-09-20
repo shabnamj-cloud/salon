@@ -13,7 +13,7 @@ export default function ServicesPage() {
       description: "مدل‌های روز دنیا برای کوتاهی مو با تکنیک‌های حرفه‌ای.",
       imageUrl: "/images/01.jpg",
       height: 740,
-      marginBottom: 60,
+      marginBottom: 100,
       gallery: ["/images/gallery/hair1.jpg", "/images/gallery/hair2.jpg"]
     },
     {
@@ -21,7 +21,7 @@ export default function ServicesPage() {
       description: "رنگ‌های متنوع و هایلایت‌های زیبا برای جلوه‌ای خاص.",
       imageUrl: "/images/02.jpg",
       height: 700,
-      marginBottom: 50,
+      marginBottom: 100,
       gallery: ["/images/gallery/color1.jpg", "/images/gallery/color2.jpg"]
     },
     {
@@ -29,7 +29,7 @@ export default function ServicesPage() {
       description: "گریم و آرایش حرفه‌ای برای مهمانی‌ها و مجالس.",
       imageUrl: "/images/03.jpg",
       height: 750,
-      marginBottom: 60,
+      marginBottom: 100,
       gallery: [] // گالری خالی
     },
     {
@@ -37,7 +37,7 @@ export default function ServicesPage() {
       description: "خدمات پوستی شامل ماسک، پاکسازی و مراقبت کامل.",
       imageUrl: "/images/04.jpg",
       height: 700,
-      marginBottom: 50,
+      marginBottom: 100,
       gallery: ["/images/gallery/skin1.jpg"]
     }
   ];
@@ -52,7 +52,14 @@ export default function ServicesPage() {
         />
       </Head>
 
-      <main style={{ padding: "40px 20px", fontFamily: "'Vazir', sans-serif", backgroundColor: "#8b5218ff"}}>
+      <main style={{ padding: "60px 20px 100px", fontFamily: "'Vazir', sans-serif", backgroundColor: "#f3b0d9ff"}}>
+        {/* عنوان صفحه */}
+        <div style={headerStyle}>
+          <h1 style={titleStyle}>خدمات زیبایی باران</h1>
+          <p style={subtitleStyle}>با بهترین خدمات زیبایی در محیطی آرامش‌بخش، زیبایی را تجربه کنید</p>
+          <div style={dividerStyle}></div>
+        </div>
+
         {servicesData.map((service, index) => (
           <ServiceSection
             key={index}
@@ -77,3 +84,35 @@ export default function ServicesPage() {
     </>
   );
 }
+
+// استایل‌های عنوان
+const headerStyle = {
+  textAlign: "center",
+  marginBottom: "60px",
+  padding: "0 20px"
+};
+
+const titleStyle = {
+  fontSize: "2.8rem",
+  fontWeight: "bold",
+  color: "#7e3f76",
+  marginBottom: "15px",
+  textShadow: "1px 1px 3px rgba(0,0,0,0.1)"
+};
+
+const subtitleStyle = {
+  fontSize: "1.2rem",
+  color: "#9d6389",
+  marginBottom: "25px",
+  lineHeight: "1.6",
+  maxWidth: "600px",
+  margin: "0 auto"
+};
+
+const dividerStyle = {
+  height: "4px",
+  width: "80px",
+  backgroundColor: "#d291bc",
+  margin: "20px auto",
+  borderRadius: "2px"
+};
