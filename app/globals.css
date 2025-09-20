@@ -1,42 +1,30 @@
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-* {
-  box-sizing: border-box;
-  padding: 0;
+/* حذف فاصله پیش‌فرض مرورگر */
+html, body {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Vazir', sans-serif;
+  background-color: #f9f4ef; /* پس‌زمینه کل صفحات */
 }
 
+/* main محتوا زیر هدر */
+main {
+  margin-top: -20px; /* ارتفاع واقعی هدر */
+  min-height: calc(100vh - 70px);
+}
+
+/* حذف استایل عمومی a */
 a {
-  color: inherit;
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+/* لینک‌های هدر */
+.link {
+  color: #dd37c1;
+  text-decoration: none;
+  font-size: 18px;
+  padding: 5px 10px;
+  background: rgba(0,0,0,0.2);
+  border-radius: 5px;
+  transition: all 0.3s;
 }
