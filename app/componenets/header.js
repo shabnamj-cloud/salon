@@ -7,6 +7,9 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
+  
+  // تابع برای بستن منو پس از کلیک روی لینک
+  const closeMenu = () => setMenuOpen(false);
 
   return (
     <header className="header">
@@ -21,11 +24,11 @@ export default function Header() {
 
       {/* منو */}
       <nav className={`nav ${menuOpen ? "open" : ""}`}>
-        <Link href="/" className="link">صفحه اصلی</Link>
-        <Link href="/services" className="link">خدمات</Link>
-        <Link href="/reservation" className="link">رزرو وقت</Link>
-        <Link href="/about" className="link">درباره ما</Link>
-        <Link href="/contact" className="link">تماس با ما</Link>
+        <Link href="/" className="link" onClick={closeMenu}>صفحه اصلی</Link>
+        <Link href="/services" className="link" onClick={closeMenu}>خدمات</Link>
+        <Link href="/reservation" className="link" onClick={closeMenu}>رزرو وقت</Link>
+        <Link href="/about" className="link" onClick={closeMenu}>درباره ما</Link>
+        <Link href="/contact" className="link" onClick={closeMenu}>تماس با ما</Link>
       </nav>
 
       <style jsx>{`
@@ -65,6 +68,10 @@ export default function Header() {
           background: rgba(0,0,0,0.2);
           border-radius: 5px;
           transition: all 0.3s;
+        }
+
+        .link:hover {
+          background: rgba(0,0,0,0.4);
         }
 
         /* همبرگر */
@@ -109,6 +116,7 @@ export default function Header() {
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.3s ease;
+            gap: 0;
           }
 
           .nav.open {
@@ -119,7 +127,13 @@ export default function Header() {
             width: 100%;
             text-align: center;
             font-size: 16px;
-            padding: 10px 0;
+            padding: 15px 0;
+            border-radius: 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+          }
+
+          .link:last-child {
+            border-bottom: none;
           }
         }
       `}</style>
