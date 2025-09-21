@@ -41,27 +41,33 @@ export default function AboutPage() {
       <section className="gallerySection">
         <h2 className="galleryTitle">نمونه کارها</h2>
         <div className="galleryGrid">
-          <Image
-            src="https://images.pexels.com/photos/3769748/pexels-photo-3769748.jpeg"
-            alt="نمونه کار ۱"
-            width={300}
-            height={200}
-            className="galleryImage"
-          />
-          <Image
-            src="https://images.pexels.com/photos/3769750/pexels-photo-3769750.jpeg"
-            alt="نمونه کار ۲"
-            width={300}
-            height={200}
-            className="galleryImage"
-          />
-          <Image
-            src="https://images.pexels.com/photos/3769749/pexels-photo-3769749.jpeg"
-            alt="نمونه کار ۳"
-            width={300}
-            height={200}
-            className="galleryImage"
-          />
+          <div className="galleryItem">
+            <Image
+              src="https://images.pexels.com/photos/3769748/pexels-photo-3769748.jpeg"
+              alt="نمونه کار ۱"
+              width={300}
+              height={200}
+              className="galleryImage"
+            />
+          </div>
+          <div className="galleryItem">
+            <Image
+              src="https://images.pexels.com/photos/3769750/pexels-photo-3769750.jpeg"
+              alt="نمونه کار ۲"
+              width={300}
+              height={200}
+              className="galleryImage"
+            />
+          </div>
+          <div className="galleryItem">
+            <Image
+              src="https://images.pexels.com/photos/3769749/pexels-photo-3769749.jpeg"
+              alt="نمونه کار ۳"
+              width={300}
+              height={200}
+              className="galleryImage"
+            />
+          </div>
         </div>
       </section>
 
