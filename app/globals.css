@@ -11,7 +11,7 @@ html, body {
 
 /* main محتوا زیر هدر */
 main {
-  margin-top: 70px; /* ارتفاع واقعی هدر */
+  margin-top:-20px; /* ارتفاع واقعی هدر */
   min-height: calc(100vh - 70px);
   padding: 20px;
 }
