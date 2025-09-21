@@ -107,5 +107,56 @@
 @media (max-width: 768px) {
   .aboutContent {
     flex-direction: column;
+    padding: 0 10px;
+  }
+
+  .textBlock,
+  .imageBlock {
+    flex: none;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .heroSection {
+    height: 400px; /* کاهش ارتفاع در موبایل */
+    padding: 0 20px;
+  }
+
+  .heroTitle {
+    font-size: 24px;
+    padding: 0 10px;
+  }
+
+  .aboutSection {
+    padding: 40px 15px;
+  }
+
+  .gallerySection {
+    padding: 40px 15px;
+  }
+
+  .galleryGrid {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .galleryImage {
+    width: 100% !important;
+    height: auto !important;
+  }
+}
+
+/* موبایل‌های کوچکتر */
+@media (max-width: 480px) {
+  .heroSection {
+    height: 300px;
+  }
+
+  .heroTitle {
+    font-size: 20px;
+  }
+
+  .textBlock {
+    font-size: 16px;
   }
 }

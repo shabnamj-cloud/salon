@@ -2,40 +2,54 @@
 @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&display=swap');
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
 
-/* استایل برای کل صفحه تماس */
 .contact-page-container {
   position: relative;
   min-height: 100vh;
   font-family: 'Vazirmatn', sans-serif;
   padding: 20px;
   background-color: #f9f9f9;
+  overflow: hidden;
 }
 
-.contact-page-container::before {
-  content: "";
+/* پس‌زمینه بلوری */
+.background-image-wrapper {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, rgba(255, 245, 250, 0.9) 0%, rgba(248, 248, 248, 0.9) 100%), 
-              url("https://images.unsplash.com/photo-1595476108010-b4d1f102b59b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1776&q=80");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  opacity: 0.6;
-  filter: blur(2px);
-  -webkit-filter: blur(2px);
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -2;
+  overflow: hidden;
+}
+
+.background-image-wrapper > span, /* برای next/image wrapper */
+.background-image-wrapper img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  filter: blur(8px);
+  transform: scale(1.1);
+}
+
+.background-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 0.5);
   z-index: -1;
 }
 
+/* محتوای اصلی */
 .contact-container {
+  position: relative;
+  z-index: 10;
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
-  position: relative;
-  z-index: 1;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  backdrop-filter: saturate(180%) blur(10px);
 }
 
 .hero-section {
@@ -223,7 +237,7 @@
   object-fit: cover;
 }
 
-/* استایل برای حالت موبایل */
+/* حالت موبایل */
 @media (max-width: 768px) {
   .contact-page-container {
     padding: 10px;
@@ -239,11 +253,5 @@
   
   .contact-container {
     padding: 10px;
-  }
-  
-  .contact-page-container::before {
-    background-attachment: scroll;
-    filter: blur(1px);
-    -webkit-filter: blur(1px);
   }
 }

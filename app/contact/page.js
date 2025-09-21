@@ -1,5 +1,7 @@
 "use client";
+
 import { useState } from 'react';
+import Image from 'next/image';
 import '../css/contact.css';
 
 const ContactPage = () => {
@@ -26,10 +28,24 @@ const ContactPage = () => {
 
   return (
     <div className="contact-page-container">
-      {/* اضافه کردن div برای پس زمینه */}
+
+      {/* پس‌زمینه بلوری */}
+      <div className="background-image-wrapper">
+        <Image
+          src="/images/05.png"
+          alt="پس‌زمینه سالن زیبایی"
+          fill
+          style={{ objectFit: 'cover' }}
+          priority
+          quality={80}
+        />
+      </div>
+
       <div className="background-overlay"></div>
-      
+
+      {/* محتوای اصلی */}
       <div className="contact-container">
+
         <div className="hero-section">
           <h1 className="hero-title">تماس با سالن زیبایی ما</h1>
           <p className="hero-text">ما اینجا هستیم تا به شما کمک کنیم زیباترین نسخه خود باشید</p>
@@ -154,19 +170,48 @@ const ContactPage = () => {
           <h2 className="gallery-title">گالری سالن زیبایی ما</h2>
           <div className="gallery-grid">
             <div className="gallery-item">
-              <img src="/salon1.jpg" alt="فضای داخلی سالن" />
+              <Image
+                src="/salon1.jpg"
+                alt="فضای داخلی سالن"
+                width={400}
+                height={250}
+                style={{ objectFit: 'cover', width: '100%', height: '100%' }}
+                priority
+              />
             </div>
             <div className="gallery-item">
-              <img src="/salon2.jpg" alt="خدمات آرایش" />
+              <Image
+                src="/salon2.jpg"
+                alt="خدمات آرایش"
+                width={400}
+                height={250}
+                style={{ objectFit: 'cover', width: '100%', height: '100%' }}
+                priority
+              />
             </div>
             <div className="gallery-item">
-              <img src="/salon3.jpg" alt="مدل مو" />
+              <Image
+                src="/salon3.jpg"
+                alt="مدل مو"
+                width={400}
+                height={250}
+                style={{ objectFit: 'cover', width: '100%', height: '100%' }}
+                priority
+              />
             </div>
             <div className="gallery-item">
-              <img src="/salon4.jpg" alt="خدمات پوست" />
+              <Image
+                src="/salon4.jpg"
+                alt="خدمات پوست"
+                width={400}
+                height={250}
+                style={{ objectFit: 'cover', width: '100%', height: '100%' }}
+                priority
+              />
             </div>
           </div>
         </div>
+
       </div>
     </div>
   );

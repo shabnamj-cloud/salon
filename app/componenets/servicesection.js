@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function ServiceSection({
   title,
@@ -11,22 +12,27 @@ export default function ServiceSection({
   return (
     <section
       style={{
+        position: "relative",
         width: "100%",
         height: `${height}px`,
-        backgroundImage: `url('${imageUrl}')`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        position: "relative",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
         marginBottom: `${marginBottom}px`,
         borderRadius: "12px",
         overflow: "hidden",
         boxShadow: "0 4px 15px rgba(0,0,0,0.2)",
-        zIndex: 1
+        zIndex: 1,
       }}
     >
+      {/* تصویر زمینه */}
+      <Image
+        src={imageUrl}
+        alt={title}
+        layout="fill"
+        objectFit="cover"
+        priority
+        quality={80}
+      />
+
+      {/* پوشش نیمه شفاف */}
       <div style={overlayStyle}>
         <h2 style={titleStyle}>{title}</h2>
         <p style={descStyle}>{description}</p>
@@ -66,26 +72,27 @@ const overlayStyle = {
   justifyContent: "center",
   textAlign: "center",
   padding: "20px",
-  boxSizing: "border-box"
+  boxSizing: "border-box",
+  zIndex: 2, // روی تصویر باشه
 };
 
 const titleStyle = {
   fontSize: "32px",
   fontWeight: "bold",
   color: "#fff",
-  marginBottom: "20px"
+  marginBottom: "20px",
 };
 
 const descStyle = {
   fontSize: "18px",
   color: "#fff",
   lineHeight: "1.5",
-  marginBottom: "30px"
+  marginBottom: "30px",
 };
 
 const buttonContainer = {
   display: "flex",
-  gap: "15px"
+  gap: "15px",
 };
 
 const buttonStyle = {
@@ -95,15 +102,15 @@ const buttonStyle = {
   borderRadius: "30px",
   border: "none",
   cursor: "pointer",
-  transition: "all 0.3s ease"
+  transition: "all 0.3s ease",
 };
 
 const primaryButton = {
   background: "linear-gradient(135deg, #ff7eb3, #ff758c)",
-  color: "#fff"
+  color: "#fff",
 };
 
 const secondaryButton = {
   background: "rgba(255,255,255,0.9)",
-  color: "#333"
+  color: "#333",
 };

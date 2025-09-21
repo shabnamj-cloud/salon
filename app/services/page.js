@@ -52,7 +52,7 @@ export default function ServicesPage() {
         />
       </Head>
 
-      <main style={{ padding: "60px 20px 100px", fontFamily: "'Vazir', sans-serif", backgroundColor: "#f3b0d9ff"}}>
+      <main style={{ padding: "60px 20px 100px", fontFamily: "'Vazir', sans-serif", backgroundColor: "#fad1e9ff"}}>
         {/* عنوان صفحه */}
         <div style={headerStyle}>
           <h1 style={titleStyle}>خدمات زیبایی باران</h1>

@@ -116,7 +116,7 @@ export default function Header() {
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.3s ease;
-            gap: 0;
+            gap: 10px; /* فاصله مناسب بین لینک‌ها */
           }
 
           .nav.open {
@@ -130,7 +130,7 @@ export default function Header() {
             padding: 15px 0;
             border-radius: 0;
             border-bottom: 1px solid rgba(255,255,255,0.1);
-            margin-bottom:5px
+            /* margin-bottom حذف شد */
           }
 
           .link:last-child {

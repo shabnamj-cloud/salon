@@ -1,5 +1,5 @@
 import Head from 'next/head';
-
+import Image from 'next/image';
 
 export default function Home() {
   return (
@@ -26,29 +26,44 @@ export default function Home() {
           style={{
             position: 'absolute',
             inset: 0,
-            backgroundImage: "url('/images/3.jpg')",
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
             filter: 'blur(20px)',     // محو کردن
             transform: 'scale(1.1)',  // کمی بزرگتر تا لبه‌ها خالی نشه
+            zIndex: 0,
           }}
-        ></div>
+        >
+          <Image
+            src="/images/3.jpg"
+            alt="Background blurred"
+            layout="fill"
+            objectFit="cover"
+            priority
+            quality={75}
+          />
+        </div>
 
         {/* عکس اصلی، کامل و بدون برش */}
-        <img
-          src="/images/3.jpg"
-          alt="Background"
+        <div
           style={{
             position: 'absolute',
             top: '50%',
             left: '50%',
+            width: '100%',
+            height: '100%',
             maxWidth: '100%',
             maxHeight: '100%',
             transform: 'translate(-50%, -50%)',
-            objectFit: 'contain',
             zIndex: 1,
           }}
-        />
+        >
+          <Image
+            src="/images/3.jpg"
+            alt="Background"
+            layout="fill"
+            objectFit="contain"
+            priority
+            quality={100}
+          />
+        </div>
       </div>
 
       {/* محتوای صفحه */}
@@ -63,7 +78,7 @@ export default function Home() {
           color: '#fff',
         }}
       >
-        
+        {/* محتوای شما اینجا */}
       </main>
     </>
   );
