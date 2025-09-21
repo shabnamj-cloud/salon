@@ -171,7 +171,7 @@ const ContactPage = () => {
           <div className="gallery-grid">
             <div className="gallery-item">
               <Image
-                src="/salon1.jpg"
+                src="/images/44.jpeg"
                 alt="فضای داخلی سالن"
                 width={400}
                 height={250}
@@ -181,7 +181,7 @@ const ContactPage = () => {
             </div>
             <div className="gallery-item">
               <Image
-                src="/salon2.jpg"
+                src="/images/42.jpg"
                 alt="خدمات آرایش"
                 width={400}
                 height={250}
@@ -191,7 +191,7 @@ const ContactPage = () => {
             </div>
             <div className="gallery-item">
               <Image
-                src="/salon3.jpg"
+                src="/images/43.jpg"
                 alt="مدل مو"
                 width={400}
                 height={250}
@@ -201,7 +201,7 @@ const ContactPage = () => {
             </div>
             <div className="gallery-item">
               <Image
-                src="/salon4.jpg"
+                src="/images/41.jpg"
                 alt="خدمات پوست"
                 width={400}
                 height={250}

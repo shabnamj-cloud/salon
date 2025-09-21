@@ -5,12 +5,15 @@ html, body {
   box-sizing: border-box;
   font-family: 'Vazir', sans-serif;
   background-color: #f9f4ef; /* پس‌زمینه کل صفحات */
+  direction: rtl;
+  text-align: right;
 }
 
 /* main محتوا زیر هدر */
 main {
-  margin-top: -20px; /* ارتفاع واقعی هدر */
+  margin-top: 70px; /* ارتفاع واقعی هدر */
   min-height: calc(100vh - 70px);
+  padding: 20px;
 }
 
 /* حذف استایل عمومی a */
@@ -18,8 +21,8 @@ a {
   text-decoration: none;
 }
 
-/* لینک‌های هدر */
-.link {
+/* لینک‌های هدر - اضافه کردن این استایل */
+.nav-link {
   color: #dd37c1;
   text-decoration: none;
   font-size: 18px;
@@ -28,10 +31,16 @@ a {
   border-radius: 5px;
   transition: all 0.3s;
 }
-/* تنظیم راست به چپ برای کل صفحات */
-html, body {
-  direction: rtl;
-  text-align: right;
+
+.nav-link:hover {
+  background: rgba(0,0,0,0.4);
+}
+
+.nav-link.active {
+  background: rgba(221, 55, 193, 0.3);
+  color: #ffffff;
+  font-weight: bold;
+  box-shadow: 0 0 10px rgba(221, 55, 193, 0.5);
 }
 
 /* فرم‌ها */
@@ -53,9 +62,69 @@ label {
   margin-bottom: 6px;
   font-weight: 600;
 }
+
+/* استایل هدر */
 .header {
   direction: ltr; /* مهم: برای Flex هدر */
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+/* استایل‌های همبرگر منو برای حالت موبایل */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.bar {
+  width: 25px;
+  height: 3px;
+  background-color: #dd37c1;
+  transition: 0.3s;
+}
+
+/* ریسپانسیو */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    background-color: #383834;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    gap: 0;
+  }
+
+  .nav.open {
+    max-height: 100vh;
+  }
+
+  .nav-link {
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+    padding: 15px 0;
+    border-radius: 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .nav-link:last-child {
+    border-bottom: none;
+  }
+
+  .nav-link.active {
+    border-left: 4px solid #dd37c1;
+    background: rgba(221, 55, 193, 0.2);
+  }
 }

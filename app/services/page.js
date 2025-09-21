@@ -14,7 +14,7 @@ export default function ServicesPage() {
       imageUrl: "/images/01.jpg",
       height: 740,
       marginBottom: 100,
-      gallery: ["/images/gallery/hair1.jpg", "/images/gallery/hair2.jpg"]
+      gallery: ["/images/014.jpg", "/images/012.webp","/images/013.jpg"]
     },
     {
       title: "رنگ و هایلایت مو",
@@ -22,7 +22,7 @@ export default function ServicesPage() {
       imageUrl: "/images/02.jpg",
       height: 700,
       marginBottom: 100,
-      gallery: ["/images/gallery/color1.jpg", "/images/gallery/color2.jpg"]
+      gallery: ["/images/021.jpg", "/images/022.jpg","/images/023.jpg"]
     },
     {
       title: "میکاپ و آرایش صورت",
@@ -30,7 +30,7 @@ export default function ServicesPage() {
       imageUrl: "/images/03.jpg",
       height: 750,
       marginBottom: 100,
-      gallery: [] // گالری خالی
+      gallery: ["/images/031.jpg","/images/032.jpg"] // گالری خالی
     },
     {
       title: "مراقبت پوست و زیبایی",
@@ -38,7 +38,7 @@ export default function ServicesPage() {
       imageUrl: "/images/04.jpg",
       height: 700,
       marginBottom: 100,
-      gallery: ["/images/gallery/skin1.jpg"]
+      gallery: ["/images/041.jpg","/images/042.jpg"]
     }
   ];
 

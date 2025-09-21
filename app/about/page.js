@@ -43,28 +43,28 @@ export default function AboutPage() {
         <div className="galleryGrid">
           <div className="galleryItem">
             <Image
-              src="https://images.pexels.com/photos/3769748/pexels-photo-3769748.jpeg"
+              src="/images/51.jpg"
               alt="نمونه کار ۱"
               width={300}
-              height={200}
+              height={300}
               className="galleryImage"
             />
           </div>
           <div className="galleryItem">
             <Image
-              src="https://images.pexels.com/photos/3769750/pexels-photo-3769750.jpeg"
+              src="/images/52.jpg"
               alt="نمونه کار ۲"
               width={300}
-              height={200}
+              height={300}
               className="galleryImage"
             />
           </div>
           <div className="galleryItem">
             <Image
-              src="https://images.pexels.com/photos/3769749/pexels-photo-3769749.jpeg"
+              src="/images/53.webp"
               alt="نمونه کار ۳"
               width={300}
-              height={200}
+              height={300}
               className="galleryImage"
             />
           </div>

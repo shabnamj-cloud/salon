@@ -1,14 +1,20 @@
 "use client";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import "../globals.css";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [activeLink, setActiveLink] = useState("");
+  const pathname = usePathname();
+
+  useEffect(() => {
+    setActiveLink(pathname);
+  }, [pathname]);
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
   
-  // تابع برای بستن منو پس از کلیک روی لینک
   const closeMenu = () => setMenuOpen(false);
 
   return (
@@ -24,11 +30,41 @@ export default function Header() {
 
       {/* منو */}
       <nav className={`nav ${menuOpen ? "open" : ""}`}>
-        <Link href="/" className="link" onClick={closeMenu}>صفحه اصلی</Link>
-        <Link href="/services" className="link" onClick={closeMenu}>خدمات</Link>
-        <Link href="/reservation" className="link" onClick={closeMenu}>رزرو وقت</Link>
-        <Link href="/about" className="link" onClick={closeMenu}>درباره ما</Link>
-        <Link href="/contact" className="link" onClick={closeMenu}>تماس با ما</Link>
+        <Link 
+          href="/" 
+          className={`nav-link ${activeLink === "/" ? "active" : ""}`} 
+          onClick={closeMenu}
+        >
+          صفحه اصلی
+        </Link>
+        <Link 
+          href="/services" 
+          className={`nav-link ${activeLink === "/services" ? "active" : ""}`} 
+          onClick={closeMenu}
+        >
+          خدمات
+        </Link>
+        <Link 
+          href="/reservation" 
+          className={`nav-link ${activeLink === "/reservation" ? "active" : ""}`} 
+          onClick={closeMenu}
+        >
+          رزرو وقت
+        </Link>
+        <Link 
+          href="/about" 
+          className={`nav-link ${activeLink === "/about" ? "active" : ""}`} 
+          onClick={closeMenu}
+        >
+          درباره ما
+        </Link>
+        <Link 
+          href="/contact" 
+          className={`nav-link ${activeLink === "/contact" ? "active" : ""}`} 
+          onClick={closeMenu}
+        >
+          تماس با ما
+        </Link>
       </nav>
 
       <style jsx>{`
@@ -44,6 +80,7 @@ export default function Header() {
           background-color: #383834;
           z-index: 1000;
           box-sizing: border-box;
+          direction: ltr;
         }
 
         .logo {
@@ -58,9 +95,10 @@ export default function Header() {
         .nav {
           display: flex;
           gap: 10px;
+          direction: rtl;
         }
 
-        .link {
+        .nav-link {
           color: #dd37c1;
           text-decoration: none;
           font-size: 18px;
@@ -70,8 +108,15 @@ export default function Header() {
           transition: all 0.3s;
         }
 
-        .link:hover {
+        .nav-link:hover {
           background: rgba(0,0,0,0.4);
+        }
+
+        .nav-link.active {
+          background: rgba(221, 55, 193, 0.3);
+          color: #ffffff;
+          font-weight: bold;
+          box-shadow: 0 0 10px rgba(221, 55, 193, 0.5);
         }
 
         /* همبرگر */
@@ -107,7 +152,7 @@ export default function Header() {
 
           .nav {
             position: absolute;
-            top: 100%; /* زیر هدر */
+            top: 100%;
             left: 0;
             width: 100%;
             flex-direction: column;
@@ -116,25 +161,29 @@ export default function Header() {
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.3s ease;
-            gap: 10px; /* فاصله مناسب بین لینک‌ها */
+            gap: 0;
           }
 
           .nav.open {
-            max-height: 100vh; /* ارتفاع مناسب */
+            max-height: 100vh;
           }
 
-          .link {
+          .nav-link {
             width: 100%;
             text-align: center;
             font-size: 18px;
             padding: 15px 0;
             border-radius: 0;
             border-bottom: 1px solid rgba(255,255,255,0.1);
-            /* margin-bottom حذف شد */
           }
 
-          .link:last-child {
+          .nav-link:last-child {
             border-bottom: none;
+          }
+
+          .nav-link.active {
+            border-left: 4px solid #dd37c1;
+            background: rgba(221, 55, 193, 0.2);
           }
         }
       `}</style>
